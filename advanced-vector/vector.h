@@ -168,10 +168,9 @@ public:
     }
 
     void PopBack() noexcept {
-        if (Size() > 0) {
-            std::destroy_n(begin() + Size() - 1, 1);
-            --size_;
-        }
+        assert(Size() > 0);
+        std::destroy_n(begin() + Size() - 1, 1);
+        --size_;
     }
 
     template <typename... Args>
